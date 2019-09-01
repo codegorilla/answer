@@ -1,0 +1,6 @@
+---
+
+dns_server: 172.31.100.148
+
+syslog_port: 514
+

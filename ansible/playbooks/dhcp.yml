@@ -1,0 +1,7 @@
+---
+
+- hosts: members
+  gather_facts: false
+  roles:
+    - dhcp
+

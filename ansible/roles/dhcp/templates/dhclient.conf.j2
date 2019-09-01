@@ -1,0 +1,6 @@
+supersede domain-name-servers {{ dns_server }};
+supersede domain-search "test.lan", "ec2.internal";
+
+timeout 300;
+retry 60;
+

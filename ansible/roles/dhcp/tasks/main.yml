@@ -1,0 +1,12 @@
+---
+
+- name: Configure dhcp
+  template:
+    src: dhclient.conf.j2
+    dest: /etc/dhcp/dhclient.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Refresh dhclient
+

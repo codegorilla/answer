@@ -1,0 +1,31 @@
+---
+
+- name: Install audit dispatcher plugins
+  package:
+    name: audispd-plugins
+    state: present
+
+- name: Configure audisp-remote (V-72083)
+  template:
+    src: audisp-remote.conf.j2
+    dest: /etc/audisp/audisp-remote.conf
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - restart auditd
+
+- name: Enable audisp-remote
+  lineinfile:
+    path: /etc/audisp/plugins.d/au-remote.conf
+    regexp: "^active"
+    line: active = yes
+  notify:
+    - restart auditd
+
+- name: Enable and start auditd (V-72079)
+  systemd:
+    name: auditd
+    enabled: yes
+    state: started
+

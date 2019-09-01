@@ -1,0 +1,12 @@
+---
+
+# The auditd service must be restarted using service, not systemd.
+# The service module does not work for this, because it automatically
+# switches to systemd; even when overridden by the 'use' parameter.
+
+- name: restart auditd
+  command: >
+    service auditd restart
+  args:
+    warn: false
+

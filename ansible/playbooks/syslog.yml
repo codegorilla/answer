@@ -1,0 +1,12 @@
+---
+
+- hosts: syslog_server
+  gather_facts: false
+  roles:
+    - syslog_server
+
+- hosts: syslog_client
+  gather_facts: false
+  roles:
+    - syslog_client
+

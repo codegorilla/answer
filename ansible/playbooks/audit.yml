@@ -1,0 +1,12 @@
+---
+
+- hosts: audit_server
+  gather_facts: false
+  roles:
+    - audit_server
+
+- hosts: audit_client
+  gather_facts: false
+  roles:
+    - audit_client
+

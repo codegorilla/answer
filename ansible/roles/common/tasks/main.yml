@@ -1,0 +1,56 @@
+---
+
+- name: Install vim
+  package:
+    name: vim
+    state: present
+
+- name: Install screen (V-71897)
+  package:
+    name: screen
+    state: present
+
+- name: Remove rsh-server (V-71967)
+  package:
+    name: rsh-server
+    state: absent
+
+- name: Remove ypserv (V-71969)
+  package:
+    name: ypserv
+    state: absent
+
+- name: Remote or disable autofs (V-71985)
+  package:
+    name: autofs
+    state: absent
+
+# V-71903
+# V-71905
+
+- name: Configure password quality (V-71903, V-71905, etc.)
+  copy:
+    src: pwquality.conf
+    dest: /etc/security/pwquality.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Remove games account (V-72001)
+  user:
+    name: games
+    state: absent
+
+- name: Remove games group (V-72001)
+  group:
+    name: games
+    state: absent
+
+- name: Terminate session after ten minutes (V-72223)
+  copy:
+    src: tmout.sh
+    dest: /etc/profile.d/tmout.sh
+    owner: root
+    group: root
+    mode: 0644
+

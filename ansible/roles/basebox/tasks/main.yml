@@ -1,0 +1,12 @@
+---
+
+- name: Install needed packages
+  package:
+    name:
+      - tree
+      - unzip
+      - vim
+      - wget
+    state: present
+
+

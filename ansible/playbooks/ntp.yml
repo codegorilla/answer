@@ -1,0 +1,12 @@
+---
+
+- hosts: ntp_server
+  gather_facts: false
+  roles:
+    - ntp_server
+
+- hosts: ntp_client
+  gather_facts: false
+  roles:
+    - ntp_client
+

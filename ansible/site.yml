@@ -1,0 +1,18 @@
+---
+
+- import_playbook: playbooks/basebox.yml
+
+- import_playbook: playbooks/dhcp.yml
+
+- import_playbook: playbooks/common.yml
+
+- import_playbook: playbooks/ntp.yml
+
+- import_playbook: playbooks/syslog.yml
+
+- import_playbook: playbooks/audit.yml
+
+- import_playbook: playbooks/ssh_server.yml
+
+- import_playbook: playbooks/kdump.yml
+

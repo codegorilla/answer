@@ -1,0 +1,8 @@
+---
+
+- name: Disable kdump (V-72057)
+  systemd:
+    name: kdump
+    enabled: "{{ enable_kdump }}"
+    state: stopped
+

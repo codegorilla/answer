@@ -1,0 +1,20 @@
+---
+
+- name: Copy issue.my file
+  copy:
+    src: issue.my
+    dest: /etc/issue.my
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Configure sshd_config
+  template:
+    src: sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0600
+  notify:
+    - restart sshd
+

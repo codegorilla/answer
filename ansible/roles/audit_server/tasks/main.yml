@@ -1,0 +1,18 @@
+---
+
+- name: Configure auditd
+  template:
+    src: auditd.conf.j2
+    dest: /etc/audit/auditd.conf
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - restart auditd
+
+- name: Enable and start auditd (V-72079)
+  systemd:
+    name: auditd
+    enabled: yes
+    state: started
+

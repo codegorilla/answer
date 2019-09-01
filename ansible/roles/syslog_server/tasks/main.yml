@@ -1,0 +1,21 @@
+---
+
+# The listen.conf file is not needed with the advanced syntax
+
+- name: Remove listen.conf file
+  file:
+    path: /etc/rsyslog.d/listen.conf
+    state: absent
+  notify:
+    - restart rsyslog
+
+- name: Configure rsyslog
+  template:
+    src: rsyslog.conf.j2
+    dest: /etc/rsyslog.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart rsyslog
+
